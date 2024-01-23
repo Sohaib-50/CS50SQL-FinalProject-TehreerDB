@@ -1,12 +1,13 @@
 -- In this SQL file, write (and comment!) the typical SQL queries users will run on your database
 
--- find a user by email eg. 'foo@bar.com'
+-- find a user by email, eg. 'foo@bar.com', and password_hash (eg for authentication)
 SELECT *
 FROM "users"
-WHERE "email" = 'foo@bar.com';
+WHERE "email" = 'foo@bar.com'
+AND "password_hash" = 'xyz';
 
 
--- Get all articles of a user with a particular ID eg. 10
+-- Get all articles of a user with a particular ID eg. 10 (eg. to display on their profile page)
 SELECT "title", "content", "published"
 FROM "articles"
 WHERE "author_id" = 10;
@@ -65,7 +66,7 @@ SELECT "likes" FROM "article_likes_count" WHERE "article_id" = 7;
 SELECT
     (SELECT COUNT(*) FROM "follows" WHERE "following_id" = 5) AS "followers_count",
     (SELECT COUNT(*) FROM "follows" WHERE "user_id" = 5) AS "followings_count";
--- OR, via a view
+-- OR, via view:
 SELECT "followers", "followings" FROM "follow_counts" WHERE "id" = 5;
 
 -- Get users followed by a particular user eg. with id 5
