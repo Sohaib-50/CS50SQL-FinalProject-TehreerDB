@@ -139,7 +139,7 @@ The `activity_logs` table includes:
 ### Relationships
 
 In this section you should include your entity relationship diagram and describe the relationships between the entities in your database.
-![Tehreer DB ER Diagram](TehreerDB.svg)
+<img src="TehreerDB.svg" alt="Tehreer DB ER Diagram" width="40%">
 
 ## Optimizations
 
