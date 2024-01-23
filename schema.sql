@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS "articles" (
 -- Represent topics of articles
 CREATE TABLE IF NOT EXISTS "topics" (
     "id" INTEGER,
-    "name" TEXT NOT NULL,
+    "name" TEXT NOT NULL UNIQUE,
 
     PRIMARY KEY("id")
 );
@@ -54,8 +54,8 @@ CREATE TABLE IF NOT EXISTS "likes" (
 -- Represent comments on articles by users
 CREATE TABLE IF NOT EXISTS "comments" (
     "id" INTEGER,
-    "article_id" INTEGER,
-    "author_id" INTEGER,
+    "article_id" INTEGER NOT NULL
+    "author_id" INTEGER NOT NULL,
     "content" TEXT NOT NULL,
     "written" NUMERIC NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
